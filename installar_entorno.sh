@@ -1,3 +1,5 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
 [ ! -e storage ] && termux-setup-storage
 termux-change-repo
 pkg update
