@@ -41,7 +41,7 @@ alias tw="termux-open-url https://www.twitch.com"
 alias cr="termux-open-url https://www.google.com"
 alias nf="am start -n com.netflix.mediaclient/com.netflix.mediaclient.ui.launch.UIWebViewActivity > /dev/null 2>&1"
 ?() {
-  gemini -p "$*"
+  gemini -m gemini-2.5-flash -p "$*"
 }
 clear
 [ $(pgrep -c zellij) -eq 0 ] && zellij
