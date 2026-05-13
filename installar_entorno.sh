@@ -17,18 +17,14 @@ pkg install htop -y
 pkg install nmap -y
 pkg install wget -y
 pkg install yt-dlp -y
-
 sed -i 's/^# fullscreen = true/fullscreen = true/' ~/.termux/termux.properties
 sed -i 's/^# *extra-keys = \[\[ESC.*/extra-keys = []/' ~/.termux/termux.properties
 sed -i 's/^# back-key=escape/back-key=escape/' ~/.termux/termux.properties
-
 mkdir -p ~/.config/zellij && zellij setup --dump-config > ~/.config/zellij/config.kdl
 echo "show_startup_tips false" >> ~/.config/zellij/config.kdl
 echo "show_release_notes false" >>  ~/.config/zellij/config.kdl
-
 [ ! -e ~/.termux/font.ttf ] && curl -L https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFont-Regular.ttf -o ~/.termux/font.ttf
 termux-reload-settings
-
 cat << 'EOF' > ~/.bashrc
 alias t="tree -Ch"
 alias c="clear"
@@ -46,9 +42,7 @@ alias nf="am start -n com.netflix.mediaclient/com.netflix.mediaclient.ui.launch.
 clear
 [ $(pgrep -c zellij) -eq 0 ] && zellij
 EOF
-
 mkdir -p ~/.config/nvim && echo 'vim.opt.clipboard = "unnamedplus"' > ~/.config/nvim/init.lua
-
 curl -fsSL https://raw.githubusercontent.com/DevCoreXOfficial/core-termux/main/install.sh | bash
 core install ai
 cat << 'EOF' > ~/ai.help
@@ -63,5 +57,4 @@ cat << 'EOF' > ~/ai.help
 • OpenCode (opencode)
 • Engram (engram)
 EOF
-
 kill -9 -1
