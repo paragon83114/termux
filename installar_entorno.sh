@@ -16,6 +16,7 @@ pkg install which -y
 pkg install htop -y
 pkg install nmap -y
 pkg install wget -y
+pkg install yt-dlp -y
 
 sed -i 's/^# fullscreen = true/fullscreen = true/' ~/.termux/termux.properties
 sed -i 's/^# *extra-keys = \[\[ESC.*/extra-keys = []/' ~/.termux/termux.properties
