@@ -44,7 +44,8 @@ clear
 EOF
 mkdir -p ~/.config/nvim && echo 'vim.opt.clipboard = "unnamedplus"' > ~/.config/nvim/init.lua
 curl -fsSL https://raw.githubusercontent.com/DevCoreXOfficial/core-termux/main/install.sh | bash
-core install ai
+# core install ai
+core install ai --gemini-cli
 cat << 'EOF' > ~/ai.help
 • Qwen Code (qwen)
 • Gemini CLI (gemini)
