@@ -44,6 +44,8 @@ proot-distro login debian --shared-tmp -- bash -c "
 cat << 'EOF' > /data/data/com.termux/files/usr/bin/opencode
 #!/data/data/com.termux/files/usr/bin/bash
 proot-distro login --shared-tmp --work-dir "$PWD" debian -- opencode "$@" 2>/dev/null
+EOF
+chmod +x /data/data/com.termux/files/usr/bin/opencode
 
 cat << 'EOF' > ~/.bashrc
 #!/data/data/com.termux/files/usr/bin/bash
@@ -63,6 +65,3 @@ alias nf="am start -n com.netflix.mediaclient/com.netflix.mediaclient.ui.launch.
 clear
 [ $(pgrep -c zellij) -eq 0 ] && zellij
 EOF
-
-EOF
-chmod +x /data/data/com.termux/files/usr/bin/opencode
