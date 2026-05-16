@@ -28,10 +28,14 @@ echo "show_release_notes false" >>  ~/.config/zellij/config.kdl
 [ ! -e ~/.termux/font.ttf ] && curl -L https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFont-Regular.ttf -o ~/.termux/font.ttf
 termux-reload-settings
 mkdir -p ~/.config/nvim && echo 'vim.opt.clipboard = "unnamedplus"' > ~/.config/nvim/init.lua
-proot-distro install debian
-# apt update && apt upgrade && apt install -y curl git ca-certificates && curl -fsSL https://opencode.ai/install | bash
 npm install -g @google/gemini-cli
-
+proot-distro install debian
+proot-distro login debian -- shared-tmp -- bash -c "
+    apt update && \
+    apt upgrade -y && \
+    apt install -y curl git ca-certificates && \
+    curl -fsSL https://opencode.ai/install | bash
+"
 cat << 'EOF' > ~/.bashrc
 #!/data/data/com.termux/files/usr/bin/bash
 alias t="tree -Ch"
