@@ -1,2 +1,2 @@
 # termux
-Script de configuración para Termux de entorno de trabajo basado en zellij, nvim y gemini/opencode
+​Termux Dev-Environment Setup: Zellij, Nvim & AI-Agents (OpenCode/Gemini)
