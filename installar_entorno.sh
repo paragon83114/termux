@@ -29,7 +29,11 @@ echo "show_release_notes false" >>  ~/.config/zellij/config.kdl
 [ ! -e ~/.termux/font.ttf ] && curl -L https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFont-Regular.ttf -o ~/.termux/font.ttf
 termux-reload-settings
 mkdir -p ~/.config/nvim && echo 'vim.opt.clipboard = "unnamedplus"' > ~/.config/nvim/init.lua
+
+# DEBIAN
 npm install -g @google/gemini-cli
+
+# OPENCODE
 proot-distro install debian
 proot-distro login debian --shared-tmp -- bash -c "
     apt update && \
@@ -37,6 +41,9 @@ proot-distro login debian --shared-tmp -- bash -c "
     apt install -y curl git ca-certificates && \
     curl -fsSL https://opencode.ai/install | bash
 "
+cat << 'EOF' > /data/data/com.termux/files/usr/bin/opencode
+#!/data/data/com.termux/files/usr/bin/bash
+proot-distro login --shared-tmp --work-dir "$PWD" debian -- opencode "$@" 2>/dev/null
 
 cat << 'EOF' > ~/.bashrc
 #!/data/data/com.termux/files/usr/bin/bash
@@ -57,8 +64,5 @@ clear
 [ $(pgrep -c zellij) -eq 0 ] && zellij
 EOF
 
-cat << 'EOF' > /data/data/com.termux/files/usr/bin/opencode
-#!/data/data/com.termux/files/usr/bin/bash
-proot-distro login --shared-tmp --work-dir "$PWD" debian -- opencode "$@" 2>/dev/null
 EOF
 chmod +x /data/data/com.termux/files/usr/bin/opencode
