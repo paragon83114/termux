@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-[ ! -e storage ] && termux-setup-storage
+[ ! -e ~/storage ] && termux-setup-storage
 termux-change-repo
 pkg update
 pkg upgrade -y -o Dpkg::Options::="--force-confnew"
@@ -19,6 +19,7 @@ pkg install wget -y
 pkg install yt-dlp -y
 pkg install proot-distro -y
 pkg install nodejs -y
+pkg install curl -y
 sed -i 's/^# fullscreen = true/fullscreen = true/' ~/.termux/termux.properties
 sed -i 's/^# *extra-keys = \[\[ESC.*/extra-keys = []/' ~/.termux/termux.properties
 sed -i 's/^# back-key=escape/back-key=escape/' ~/.termux/termux.properties
@@ -30,12 +31,13 @@ termux-reload-settings
 mkdir -p ~/.config/nvim && echo 'vim.opt.clipboard = "unnamedplus"' > ~/.config/nvim/init.lua
 npm install -g @google/gemini-cli
 proot-distro install debian
-proot-distro login debian -- shared-tmp -- bash -c "
+proot-distro login debian --shared-tmp -- bash -c "
     apt update && \
     apt upgrade -y && \
     apt install -y curl git ca-certificates && \
     curl -fsSL https://opencode.ai/install | bash
 "
+
 cat << 'EOF' > ~/.bashrc
 #!/data/data/com.termux/files/usr/bin/bash
 alias t="tree -Ch"
@@ -55,8 +57,8 @@ clear
 [ $(pgrep -c zellij) -eq 0 ] && zellij
 EOF
 
-cat << 'EOF' > ~/../usr/bin/opencode
+cat << 'EOF' > /data/data/com.termux/files/usr/bin/opencode
 #!/data/data/com.termux/files/usr/bin/bash
 proot-distro login --shared-tmp --work-dir "$PWD" debian -- opencode "$@" 2>/dev/null
 EOF
-chmod +x ~/../usr/bin/opencode
+chmod +x /data/data/com.termux/files/usr/bin/opencode
