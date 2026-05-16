@@ -31,7 +31,9 @@ mkdir -p ~/.config/nvim && echo 'vim.opt.clipboard = "unnamedplus"' > ~/.config/
 proot-distro install debian
 # apt update && apt upgrade && apt install -y curl git ca-certificates && curl -fsSL https://opencode.ai/install | bash
 npm install -g @google/gemini-cli
+
 cat << 'EOF' > ~/.bashrc
+#!/data/data/com.termux/files/usr/bin/bash
 alias t="tree -Ch"
 alias c="clear"
 alias ls="lsd"
@@ -48,3 +50,9 @@ alias nf="am start -n com.netflix.mediaclient/com.netflix.mediaclient.ui.launch.
 clear
 [ $(pgrep -c zellij) -eq 0 ] && zellij
 EOF
+
+cat << 'EOF' > ~/../usr/bin/opencode
+#!/data/data/com.termux/files/usr/bin/bash
+proot-distro login --shared-tmp --work-dir "$PWD" debian -- opencode "$@" 2>/dev/null
+EOF
+chmod +x ~/../usr/bin/opencode
