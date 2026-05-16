@@ -20,6 +20,7 @@ pkg install yt-dlp -y
 pkg install proot-distro -y
 pkg install nodejs -y
 pkg install curl -y
+pkg install git -y
 sed -i 's/^# fullscreen = true/fullscreen = true/' ~/.termux/termux.properties
 sed -i 's/^# *extra-keys = \[\[ESC.*/extra-keys = []/' ~/.termux/termux.properties
 sed -i 's/^# back-key=escape/back-key=escape/' ~/.termux/termux.properties
