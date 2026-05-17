@@ -8,4 +8,4 @@ sed -i 's/^# *extra-keys = \[\[ESC.*/extra-keys = []/' ~/.termux/termux.properti
 sed -i 's/^# back-key=escape/back-key=escape/' ~/.termux/termux.properties
 pkg install -y proot-distro
 proot-distro install debian
-echo "proot-distro login debian 2>/dev/null" > .bashrc
+echo "proot-distro login debian" > .bashrc
