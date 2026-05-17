@@ -1,6 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 [ ! -e ~/storage ] && termux-setup-storage
+touch ~/.hushlogin
 termux-change-repo
 pkg update
 pkg upgrade -y -o Dpkg::Options::="--force-confnew"
