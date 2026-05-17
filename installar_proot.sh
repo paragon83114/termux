@@ -19,3 +19,16 @@ apt install -y neovim curl wget git nodejs npm docker-compose lsd bat tree procp
 curl -fsSL https://opencode.ai/install | bash
 npm install -g @google/gemini-cli
 curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=0.30.0-rc17 sh
+cat << 'EOF' > ~/.bashrc
+alias t="tree -Ch"
+alias c="clear"
+alias ls="lsd"
+alias l="lsd -l --date +%Y/%m/%d --blocks permission,user,size,date,name"
+alias ll="lsd -lha --date +%Y/%m/%d --blocks permission,user,size,date,name"
+alias nano="nvim"
+export PATH=/root/.opencode/bin:$PATH
+[ $(pgrep -c tmux) -eq 0 ] && tmux
+?() {
+  gemini -m gemini-2.5-flash -p "$*"
+}
+EOF
