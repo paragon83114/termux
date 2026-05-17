@@ -21,6 +21,7 @@ npm install -g @google/gemini-cli
 curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=0.30.0-rc17 sh
 
 # ~/.config/tmux/tmux.conf
+
 # Prefijo
 unbind C-b
 set -g prefix ¡
@@ -72,3 +73,21 @@ bind -n M-9 if-shell "tmux select-window -t :9" "" "new-window -t :9"
 bind -n M-x kill-window
 # Cierra pane con Alt Shift X
 bind -n M-q kill-pane
+# Siguiente ventana con Alt + Espacio
+bind -n M-Space next-window
+# ==========================================
+# CONFIGURACIÓN DE LA BARRA CON FONDO SUTIL
+# ==========================================
+# Barra de estado: Fondo gris casi negro (carbón), texto gris medio
+set -g status-style bg=colour234,fg=colour243
+# Limpiar los lados para dar aire
+set -g status-left ""
+# Lado derecho: Nombre de sesión en magenta y hora sobre el fondo sutil
+#set -g status-right "#[fg=green,bright]#S #[fg=colour238]│ #[fg=colour245,nobold]%H:%M "
+# --- Ventanas (Botones de navegación) ---
+# Ventanas inactivas: Número en un gris que se funde con la barra
+set -g window-status-format "#[fg=colour240] #I "
+# Ventana activa: Fondo un paso más claro para simular un botón, número en magenta
+set -g window-status-current-format "#[fg=green,bold,bg=colour236] #I "
+# Estilo de alerta por si pita una ventana
+set -g window-status-bell-style "bg=red,fg=white,nobold"
