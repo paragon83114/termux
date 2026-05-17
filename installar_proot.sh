@@ -16,11 +16,9 @@ echo "proot-distro login debian" > .bashrc
 apt update
 apt upgrade
 apt install -y neovim curl wget git nodejs npm docker-compose lsd bat tree procps
-# curl -fsSL https://opencode.ai/install | bash
-# npm install -g @google/gemini-cli
-dir="/usr/bin"
-url="https://github.com/zellij-org/zellij/releases/latest/download/zellij-aarch64-unknown-linux-musl.tar.gz"
-curl --location "$url" | tar -C "$dir" -xz
+curl -fsSL https://opencode.ai/install | bash
+npm install -g @google/gemini-cli
+curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=0.30.0-rc17 sh
 
 # ~/.config/tmux/tmux.conf
 # Prefijo
