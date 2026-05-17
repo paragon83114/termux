@@ -26,9 +26,9 @@ alias ls="lsd"
 alias l="lsd -l --date +%Y/%m/%d --blocks permission,user,size,date,name"
 alias ll="lsd -lha --date +%Y/%m/%d --blocks permission,user,size,date,name"
 alias nano="nvim"
-export PATH=/root/.opencode/bin:$PATH
-[ $(pgrep -c tmux) -eq 0 ] && tmux
 ?() {
   gemini -m gemini-2.5-flash -p "$*"
 }
+export PATH=/root/.opencode/bin:$PATH
+[ $(pgrep -c tmux) -eq 0 ] && tmux
 EOF
