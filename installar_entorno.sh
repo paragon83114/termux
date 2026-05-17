@@ -65,5 +65,5 @@ alias nf="am start -n com.netflix.mediaclient/com.netflix.mediaclient.ui.launch.
   gemini -m gemini-2.5-flash -p "$*"
 }
 clear
-[ $(pgrep -c zellij) -eq 0 ] && zellij
+[ $(pgrep -c zellij) -eq 0 ] && zellij options --theme tokyo-night-dark
 EOF
