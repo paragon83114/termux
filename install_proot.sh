@@ -44,6 +44,11 @@ alias nano="nvim"
 ?() {
   gemini -m gemini-2.5-flash -p "$*"
 }
+# bash completions
+[[ -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
+# starship
+eval "$(starship init bash)"
+# opencode
 export PATH=/root/.opencode/bin:$PATH
 [ $(pgrep -c tmux) -eq 0 ] && tmux
 EOF
