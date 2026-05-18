@@ -29,7 +29,7 @@ set -e
 
 apt update
 apt upgrade -y
-apt install -y neovim curl wget git nodejs npm docker-compose lsd bat tree procps mpv
+apt install -y neovim curl wget git nodejs npm docker-compose lsd bat tree procps mpv stow
 
 curl -fsSL https://opencode.ai/install | bash
 npm install -g @google/gemini-cli
