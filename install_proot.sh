@@ -29,7 +29,7 @@ set -e
 
 apt update
 apt upgrade -y
-apt install -y neovim curl wget git nodejs npm docker-compose lsd bat tree procps mpv stow
+apt install -y neovim curl wget git nodejs npm docker-compose lsd bat tree procps mpv stow ripgrep
 curl -sS https://starship.rs/install.sh | sh
 curl -fsSL https://opencode.ai/install | bash
 npm install -g @google/gemini-cli
