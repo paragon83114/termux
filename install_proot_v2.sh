@@ -84,14 +84,16 @@ NC='\033[0m'
 
 echo -e "\${GREEN}[PROOT] Actualizando Debian e instalando paquetes...\${NC}"
 apt update && apt upgrade -y
-apt install -y neovim curl wget git nodejs npm docker-compose lsd bat tree procps mpv stow ripgrep tmux fzf glow locales
+apt install -y neovim curl wget git lsd bat tree procps mpv stow ripgrep tmux fzf glow locales
+# apt install -y nodejs npm docker-compose
 
 # Instalaciones externas
 echo -e "\${GREEN}[PROOT] Instalando Starship, OpenCode, Gemini-CLI y Ollama...\${NC}"
 curl -sS https://starship.rs/install.sh | sh -s -- -y
 curl -fsSL https://opencode.ai/install | bash
-npm install -g @google/gemini-cli
-curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=$OLLAMA_VER sh
+
+# npm install -g @google/gemini-cli
+# curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=$OLLAMA_VER sh
 
 # Locale
 echo -e "\${GREEN}[PROOT] Configurando Locales...\${NC}"
